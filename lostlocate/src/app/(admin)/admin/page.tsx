@@ -4,8 +4,6 @@ import { useGetAdminData } from '../../hooks/useGetAdminData';
 import AdminChart from '../../Chart/admin';
 import Layout from './components/Layout';
 
-
-
 const AdminDashboard = () => {
   const { metrics, isLoading, error } = useGetAdminData(); 
 
@@ -22,37 +20,30 @@ const AdminDashboard = () => {
   const successfulMatches = metrics?.SuccessfulMatches ?? 0;  
 
   return (
-   <Layout>
-    <div className="min-h-screen w-screen flex flex-col bg-gray-100 fixed ml-[310px]">
-      
-      <div className="flex flex-wrap gap-16 mt-10 nesthub:mt-[8px] nesthub:ml-[18px] nesthubmax:mt-[12px] nesthub:gap-[24px] nesthubmax:ml-8 nesthubmax:gap-20 2xl:ml-14">
-        
-         <div className="bg-[#D4B337] text-[#FFFFFF] text-center text-[24px] font-bold p-6 rounded-lg shadow-md w-[400px] h-[200px]
-           nesthub:w-[190px] nesthub:h-[100px] nesthub:text-[16px]
-           nesthubmax:w-[230px] nesthubmax:h-[130px] nesthubmax:text-[20px] 2xl:w-[350px] 2xl:h-[150px] 2xl:text-[28px]">
-           Total Police Stations: <br/>
-           {totalPoliceStations}
-         </div>
-
-         <div className="bg-[#662113] p- text-[#FFFFFF] text-center text-[24px] font-bold p-6 rounded-lg shadow-md w-[400px] h-[200px]
-           nesthub:w-[190px] nesthub:h-[100px] nesthub:text-[16px]
-           nesthubmax:w-[230px] nesthubmax:h-[130px] nesthubmax:text-[20px] 2xl:w-[350px] 2xl:h-[150px] 2xl:text-[28px]">
-           Total Mortuaries: <br/>
-           {totalMortuaries}
-         </div>
-          <div className="bg-[#8D4004] text-[#FFFFFF] text-center text-[24px] font-bold p-6 rounded-lg shadow-md w-[400px] h-[200px]
-           nesthub:w-[190px] nesthub:h-[100px] nesthub:text-[16px]
-           nesthubmax:w-[230px] nesthubmax:h-[130px] nesthubmax:text-[20px] 2xl:w-[350px] 2xl:h-[150px] 2xl:text-[28px]">
-           Successful Matches: <br/>
-           {successfulMatches}
-         </div>
-      </div>
-      <div className="ml-10 mt-8 nesthubmax:ml-4 nesthub:ml-2 2xl:ml-16">
-        <div className="w-[100%]">
-          <AdminChart/>
+    <Layout>
+      <div className="min-h-screen w-full flex flex-col bg-gray-100 px-2 sm:px-4 md:px-8 py-4">
+        <div className="container mx-auto">
+          <div className="flex flex-col md:flex-row flex-wrap gap-4 md:gap-8 mt-6 justify-center items-stretch">
+            <div className="bg-[#D4B337] text-[#FFFFFF] text-center text-lg sm:text-xl md:text-2xl font-bold p-4 sm:p-6 rounded-lg shadow-md w-full max-w-xs flex-1">
+              Total Police Stations: <br/>
+              <span className="text-2xl sm:text-3xl md:text-4xl">{totalPoliceStations}</span>
+            </div>
+            <div className="bg-[#662113] text-[#FFFFFF] text-center text-lg sm:text-xl md:text-2xl font-bold p-4 sm:p-6 rounded-lg shadow-md w-full max-w-xs flex-1">
+              Total Mortuaries: <br/>
+              <span className="text-2xl sm:text-3xl md:text-4xl">{totalMortuaries}</span>
+            </div>
+            <div className="bg-[#8D4004] text-[#FFFFFF] text-center text-lg sm:text-xl md:text-2xl font-bold p-4 sm:p-6 rounded-lg shadow-md w-full max-w-xs flex-1">
+              Successful Matches: <br/>
+              <span className="text-2xl sm:text-3xl md:text-4xl">{successfulMatches}</span>
+            </div>
+          </div>
+          <div className="mt-8 flex flex-col items-center">
+            <div className="w-full max-w-3xl">
+              <AdminChart/>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     </Layout>
   );
 };

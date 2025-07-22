@@ -60,28 +60,25 @@ const PublicDashboard: React.FC = () => {
           <Image
             src='/media/lostlocatelogo.png'
             alt='LostLocate Logo'
-            className='w-24 ml-[-76px] sm:w-32'
+            className='w-24 sm:w-32 ml-0 sm:ml-0'
             width={500}
             height={300}
             priority
           />
-          
           <h1 className="text-[#D4B337] text-center text-[24px] sm:text-[40px] flex-grow">
             Locating Lost Ones
           </h1>
-          
           <button
             onClick={() => router.push('/login')}
-            className="mt-4 mr-[-70px] sm:mt-0 bg-[#D4B337] hover:bg-[#bba72f] text-[#662113] font-semibold py-2 px-6 rounded-full shadow-lg transition duration-200 ease-in-out transform hover:scale-105"
+            className="mt-4 sm:mt-0 bg-[#D4B337] hover:bg-[#bba72f] text-[#662113] font-semibold py-2 px-6 rounded-full shadow-lg transition duration-200 ease-in-out transform hover:scale-105"
           >
             Manage Data
           </button>
         </div>
       </header>
-
-      <main className="container mx-auto p-4">
-        <section className="flex justify-between items-center mt-8 mb-4">
-          <h2 className="text-[30px] font-bold text-[#662113]">Missing Persons Updates</h2>
+      <main className="container mx-auto px-2 sm:px-4 md:px-8 py-4">
+        <section className="flex flex-col sm:flex-row justify-between items-center mt-8 mb-4 gap-4">
+          <h2 className="text-[24px] sm:text-[30px] font-bold text-[#662113]">Missing Persons Updates</h2>
           <select
             className="border border-[#662113] px-4 py-2 rounded-md"
             value={selectedLocation}
@@ -97,36 +94,35 @@ const PublicDashboard: React.FC = () => {
             ))}
           </select>
         </section>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
-          {updateCategories.map((category) => (
-            <UpdateCard
-              key={category.title}
-              title={category.title}
-              count={category.count}
-              isActive={category.title === activeTab}
-              onClick={() => {
-                setActiveTab(category.title);
-                setCurrentPage(1);
-              }}
-            />
-          ))}
-        </div>
-
-        <section className="mt-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center mb-4">
-            <h2 className="text-[30px] font-bold text-[#662113] mb-4 sm:mb-0">Recent Cases</h2>
-            <div className="relative w-full sm:w-96">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="border border-[#662113] rounded-full px-4 py-2 w-full sm:w-96 md:ml-10 md:w-[90%] pl-10"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+        <div className="overflow-x-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+            {updateCategories.map((category) => (
+              <UpdateCard
+                key={category.title}
+                title={category.title}
+                count={category.count}
+                isActive={category.title === activeTab}
+                onClick={() => {
+                  setActiveTab(category.title);
+                  setCurrentPage(1);
+                }}
               />
-              <FaSearch className="absolute left-3 md:left-14 top-1/2 transform -translate-y-1/2 text-[#662113]" />
-            </div>
+            ))}
           </div>
+        </div>
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-4 gap-4">
+          <h2 className="text-[24px] sm:text-[30px] font-bold text-[#662113] mb-4 sm:mb-0">Recent Cases</h2>
+          <div className="relative w-full sm:w-96">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="border border-[#662113] rounded-full px-4 py-2 w-full pl-10"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#662113]" />
+          </div>
+        </div>
 
           {loading ? (
             <p>Loading...</p>
@@ -173,7 +169,6 @@ const PublicDashboard: React.FC = () => {
               Next
             </button>
           </div>
-        </section>
       </main>
     </div>
   );

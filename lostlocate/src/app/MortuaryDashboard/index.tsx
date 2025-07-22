@@ -21,27 +21,20 @@ const MortuaryDashboard = () => {
   const successfulMatches = 2
 
   return (
-    <div className="h-screen w-screen fixed ml-[350px] flex flex-col bg-gray-100">
-    
-      <div className="flex gap-64 mt-10 ml-64
-                      nesthub:mt-[8px] nesthub:ml-[35px] nesthub:gap-20 
-                      nesthubmax:mt-[12px] nesthubmax:ml-28 nesthubmax:gap-28 2xl:ml-48 2xl:gap-28 2xl:h-[200px]">
-        <div className="bg-[#D4B337] text-white text-center text-[36px] font-bold p-8 rounded-lg shadow-lg w-[400px] h-[250px] 
-                        nesthub:w-[250px] nesthub:h-[130px] nesthub:text-[20px] 
-                        nesthubmax:w-[300px] nesthubmax:h-[180px] nesthubmax:text-[24px] 2xl:w-[400px] 2xl:h-[200px]">
-          Unidentified Bodies: <br/> {unidentifiedBodies}
+    <div className="min-h-screen w-full flex flex-col bg-gray-100 px-2 sm:px-4 md:px-8 py-4">
+      <div className="container mx-auto">
+        <div className="flex flex-col md:flex-row flex-wrap gap-4 md:gap-8 mt-6 justify-center items-stretch">
+          <div className="bg-[#D4B337] text-white text-center text-lg sm:text-xl md:text-2xl font-bold p-4 sm:p-6 rounded-lg shadow-lg w-full max-w-xs flex-1">
+            Unidentified Bodies: <br/> <span className="text-2xl sm:text-3xl md:text-4xl">{unidentifiedBodies}</span>
+          </div>
+          <div className="bg-[#662113] text-white text-center text-lg sm:text-xl md:text-2xl font-bold p-4 sm:p-6 rounded-lg shadow-lg w-full max-w-xs flex-1">
+            Successful Matches: <br/> <span className="text-2xl sm:text-3xl md:text-4xl">{successfulMatches}</span>
+          </div>
         </div>
-        <div className="bg-[#662113] text-white text-center text-[36px] font-bold p-8 rounded-lg shadow-lg w-[400px] h-[250px] 
-                        nesthub:w-[250px] nesthub:h-[130px] nesthub:text-[20px] 
-                        nesthubmax:w-[300px] nesthubmax:h-[180px] nesthubmax:text-[24px] 2xl:w-[400px] 2xl:h-[200px]">
-          Successful Matches: <br/> {successfulMatches}
-        </div>
-      </div>
-
-  
-      <div className="mt-8 w-full flex ">
-        <div className="w-[80%] nesthub:w-[96%] nesthubmax:w-[95%]">
-          <BarChartComponent />
+        <div className="mt-8 flex flex-col items-center">
+          <div className="w-full max-w-3xl">
+            <BarChartComponent />
+          </div>
         </div>
       </div>
     </div>
