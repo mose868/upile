@@ -1,0 +1,39 @@
+name: Django CI/CD
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+  pull_request:
+    branches:
+      - main
+      - staging
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10.12'
+          
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+  
+      - name: Run migrations
+        run: 
+             python3 manage.py migrate
+
+      - name: Run tests
+        run:  python3 manage.py test
+      - name: format using Black
+        run: |
+           black .
+ 
+

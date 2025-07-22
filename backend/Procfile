@@ -1,0 +1,1 @@
+web: gunicorn lostlocate.wsgi --log-file -

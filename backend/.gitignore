@@ -1,0 +1,86 @@
+.env
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.pyo
+*.pyd
+# Django
+db.sqlite3
+media/
+staticfiles/
+# Virtual environment
+.env
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.pyo
+*.pyd
+# Django
+db.sqlite3
+media/
+staticfiles/
+# Virtual environment
+.env
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.pyo
+*.pyd
+# Django
+db.sqlite3
+media/
+staticfiles/
+# Virtual environment
+venv/
+env/
+env/
+env/
+env1/
+# Environment variables
+.env
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.env
+__pycache__/
+*.py[cod]
+**/__pycache__/
+db.sqlite3
+__pycache__
+db.sqlite3
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.env
+__pycache__/
+*.py[cod]
+**/__pycache__/
+db.sqlite3
+__pycache__
+db.sqlite3
+# Ignore Python bytecode files
+*.pyc
+# Ignore .pyc files in migration directories
+*/migrations/*.pyc
+# Ignore Python bytecode files
+*.pyc
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.env
+__pycache__/
+# Ignore Django migration files
+**/migrations/*.pyc
+**/migrations/__pycache__/
